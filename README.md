@@ -1,81 +1,58 @@
-# Singleton Patterns - Bootcamp DIO
+# Projeto Padrões de Projeto - Bootcamp DIO
 
-Este repositório contém exemplos de implementação do padrão de projeto Singleton em Java. O projeto faz parte do Bootcamp da Digital Innovation One (DIO) e demonstra diferentes abordagens para implementar Singleton: Lazy, Eager e Lazy Holder.
+Este projeto demonstra a implementação dos padrões de projeto **Singleton** e **Strategy** em Java. O código faz parte do Bootcamp da **Digital Innovation One (DIO)** e exemplifica o uso de padrões de design para melhorar a estrutura e manutenção do software.
 
-## Tecnologias Utilizadas
+## 📌 Tecnologias Utilizadas
 - Java
-- IntelliJ IDEA ou Eclipse
-- Git/GitHub
+- Padrão de projeto Singleton
+- Padrão de projeto Strategy
 
-## Padrões Implementados
+## 📜 Descrição dos Padrões Implementados
 
-### Singleton Lazy
-Implementação "preguiçosa" do Singleton, onde a instância é criada apenas quando solicitada.
-```java
-public class SingletonLazy {
-    private static SingletonLazy instancia;
-    
-    private SingletonLazy() {}
-    
-    public static SingletonLazy getInstancia() {
-        if (instancia == null) {
-            instancia = new SingletonLazy();
-        }
-        return instancia;
-    }
-}
+### 🏛 Singleton
+O padrão **Singleton** garante que uma classe tenha apenas uma única instância e fornece um ponto global de acesso a ela.
+
+Três variações do Singleton foram implementadas:
+1. **SingletonLazy**: Instância criada apenas quando solicitada (Lazy Initialization).
+2. **SingletonEager**: Instância criada no momento do carregamento da classe (Eager Initialization).
+3. **SingletonLazyHolder**: Usa a abordagem "Holder" para garantir inicialização segura e eficiente.
+
+### 🕹 Strategy
+O padrão **Strategy** permite selecionar dinamicamente um comportamento em tempo de execução, promovendo a flexibilidade e reutilização de código.
+
+No projeto, um robô pode se mover de diferentes formas:
+- **ComportamentoNormal**: Movimento padrão.
+- **ComportamentoDefensivo**: Movimento defensivo.
+- **ComportamentoAgressivo**: Movimento agressivo.
+
+## 📂 Estrutura do Projeto
+```
+📦 one.digitalinnovation.gof
+ ┣ 📂 singleton
+ ┃ ┣ 📜 SingletonLazy.java
+ ┃ ┣ 📜 SingletonEager.java
+ ┃ ┗ 📜 SingletonLazyHolder.java
+ ┣ 📂 strategy
+ ┃ ┣ 📜 Comportamento.java
+ ┃ ┣ 📜 ComportamentoNormal.java
+ ┃ ┣ 📜 ComportamentoDefensivo.java
+ ┃ ┣ 📜 ComportamentoAgressivo.java
+ ┃ ┗ 📜 Robo.java
+ ┗ 📜 Test.java
 ```
 
-### Singleton Eager
-A instância é criada no momento do carregamento da classe, garantindo que sempre haverá uma instância disponível.
-```java
-public class SingletonEager {
-    private static SingletonEager instancia = new SingletonEager();
-    
-    private SingletonEager() {}
-    
-    public static SingletonEager getInstancia() {
-        return instancia;
-    }
-}
-```
-
-### Singleton Lazy Holder
-Utiliza uma classe interna para garantir a inicialização segura e eficiente da instância Singleton.
-```java
-public class SingletonLazyHolder {
-    private static class InstanceHolder {
-        private static final SingletonLazyHolder instancia = new SingletonLazyHolder();
-    }
-    
-    private SingletonLazyHolder() {}
-    
-    public static SingletonLazyHolder getInstancia() {
-        return InstanceHolder.instancia;
-    }
-}
-```
-
-## Testando as Implementações
-O projeto inclui um arquivo `Test.java` para validar o funcionamento das classes Singleton.
-```java
-public class Test {
-    public static void main(String[] args) {
-        System.out.println(SingletonLazy.getInstancia());
-        System.out.println(SingletonEager.getInstancia());
-        System.out.println(SingletonLazyHolder.getInstancia());
-    }
-}
-```
-
-## Como Executar o Projeto
-1. Clone o repositório:
+## 🚀 Como Executar
+1. Clone este repositório:
    ```bash
    git clone https://github.com/seu-usuario/seu-repositorio.git
    ```
-2. Abra o projeto em uma IDE de sua escolha (Eclipse, IntelliJ IDEA, VS Code, etc.).
-3. Compile e execute `Test.java` para verificar a saída.
+2. Abra o projeto em uma IDE como **Eclipse** ou **IntelliJ IDEA**.
+3. Compile e execute a classe `Test.java`.
+4. Veja os resultados no console.
 
-## Autor
-Este projeto foi desenvolvido como parte do Bootcamp da Digital Innovation One (DIO).
+## 🎯 Objetivo do Projeto
+O objetivo deste projeto é reforçar o aprendizado sobre **padrões de projeto** e boas práticas no desenvolvimento Java, utilizando conceitos fundamentais como encapsulamento, polimorfismo e injeção de dependência.
+
+---
+Feito com ❤️ para o Bootcamp DIO 🚀
 
