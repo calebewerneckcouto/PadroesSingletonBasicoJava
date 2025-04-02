@@ -1,5 +1,6 @@
 package one.digitalinnovation.gof;
 
+import one.digitalinnovation.gof.facade.Facade;
 import one.digitalinnovation.gof.singleton.SingletonEager;
 import one.digitalinnovation.gof.singleton.SingletonLazy;
 import one.digitalinnovation.gof.singleton.SingletonLazyHolder;
@@ -8,6 +9,7 @@ import one.digitalinnovation.gof.strategy.ComportamentoAgressivo;
 import one.digitalinnovation.gof.strategy.ComportamentoDefensivo;
 import one.digitalinnovation.gof.strategy.ComportamentoNormal;
 import one.digitalinnovation.gof.strategy.Robo;
+import subsistema1.crm.CrmService;
 
 public class Test {
 	
@@ -49,6 +51,12 @@ public class Test {
 		robo.mover();
 		robo.mover();
 		robo.mover();
+		
+		
+		// Facade
+		
+		Facade facade = new Facade();
+		facade.migrarCliente("Calebe","33234166");
 		
 	}
 
